@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react';
 
-function form() {
+import FormDatosPersonales from '../formDatosPersonales';
+
+function Form() {
   const [pasoActual, setPasoActual] = useState(1);
   const siguiente = useCallback(() => {
     setPasoActual(pasoActual + 1);
@@ -10,7 +12,7 @@ function form() {
   }, [pasoActual]);
 
   if (pasoActual === 1) {
-    return <div>Datos personales</div>;
+    return <FormDatosPersonales continuar={siguiente} />;
   }
   if (pasoActual === 2) {
     return <div>Datos Laborales</div>;
@@ -24,6 +26,8 @@ function form() {
   if (pasoActual === 5) {
     return <div>Datos personales</div>;
   }
+
+  return null;
 }
 
-export default form;
+export default Form;
